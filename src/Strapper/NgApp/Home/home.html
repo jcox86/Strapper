@@ -1,0 +1,9 @@
+﻿<div class="container">
+
+    <h1>{{title}}</h1>
+    
+    <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">
+        <span ng-bind-html="alert.message"></span>
+    </alert>
+
+</div>

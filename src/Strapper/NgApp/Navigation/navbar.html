@@ -1,0 +1,47 @@
+﻿<div class="container">
+    
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" bs-navbar>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" ng-click="isCollasped = !isCollasped">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" ng-click="setRoute('/')">{{title}}</a>
+            </div>
+            <div class="collapse navbar-collapse" collapse="isCollapsed">
+                <ul class="nav navbar-nav">
+                    <li ng-repeat="navItem in navItems" ng-class="{active: isActive('{{navItem.route}}')}">
+                        <a ng-click="setRoute(navItem.route)" ng-if="navItem.route"><i class="{{navItem.icon}}"></i>{{navItem.title}}</a>
+                        <a ng-if="navItem.items" class="dropdown-toggle" data-toggle="dropdown"><i class="{{navItem.icon}}"></i>{{navItem.title}}&nbsp;<i class="fa fa-caret-down"></i></a>
+                        <ul ng-if="navItem.items" class="dropdown-menu">
+                            <li ng-repeat="item in navItem.items" ng-class="{active: isActive('{{item.route}}')}">
+                                <a ng-click="setRoute(item.route)"><i class="{{item.icon}}"></i>{{item.title}}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">{{username | uppercase}} <i class="fa fa-caret-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a ng-click="setRoute('/account')"><i class="fa fa-user fa-fw"></i>&nbsp;Manage Account</a></li>
+                            <li><a ng-click="changeUserPassword()"><i class="fa fa-unlink fa-fw"></i>&nbsp;Change Password</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li><a ng-click="logout()"><i class="fa fa-sign-out fa-fw"></i>&nbsp;Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="nav navbar-nav navbar-right col-lg-4" style="margin-top: 8px" role="search">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                        <input type="text" class="form-control" ng-model="searchCriteria" />
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-default" ng-click="search(searchCriteria)">Search</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

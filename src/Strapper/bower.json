@@ -1,0 +1,33 @@
+{
+  "name": "Strapper",
+  "version": "1.0.0",
+  "description": "Kickstart a web app with Angular",
+  "keywords": [
+    "angular"
+  ],
+  "authors": [
+    "Lotpath"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "angular": "~1.2.21",
+    "angular-route": "~1.2.21",
+    "angular-sanitize": "~1.2.21",
+    "angular-base64": "~2.0.2",
+    "angular-local-storage": "~0.0.5",
+    "angular-strap": "~2.0.4",
+    "font-awesome": "~4.1.0"
+  },
+  "resolutions": {
+    "bootstrap": "~3.2.0"
+  }
+}
