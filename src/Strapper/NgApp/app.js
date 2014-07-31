@@ -5,6 +5,7 @@
     'app.about',
     'app.account',
     'mgcrea.ngStrap',
+    'ui.bootstrap',
     'ngRoute',
     'ngAnimate'
 ]);

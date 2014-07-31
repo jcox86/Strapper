@@ -46,19 +46,19 @@ function NavigationCtrl($scope, $location, $modal, auth) {
     };
 
     $scope.changeUserPassword = function () {
-        var modalVehicleInstance = $modal.open({
+        var modalPasswordInstance = $modal.open({
             templateUrl: 'NgApp/Account/_password.html',
             controller: ModalChangePasswordCtrl,
+            size: 'sm',
+            backdrop: 'static',
             resolve: {
-                changePassword: function () {
-                    return changePassword;
-                },
+                username: function() {
+                    return $scope.username;
+                }
             }
         });
-        modalVehicleInstance.result.then(function (modal) {
-            angular.forEach(modal, function (item, index) {
-                assignment.vehicles.push(item);
-            });
+        modalPasswordInstance.result.then(function (modal) {
+            confirm('Works?');
         });
     };
 
@@ -66,3 +66,25 @@ function NavigationCtrl($scope, $location, $modal, auth) {
         auth.simulateTimeout();
     };
 }
+
+var ModalChangePasswordCtrl = function($scope, $http, $location, $modalInstance, username) {
+    $scope.username = username;
+
+    $scope.changePassword = function(password) {
+        if (password.first === password.second) {
+            //TODO: Submit change password to server and remove this line below
+            $modalInstance.dismiss('cancel');
+        }
+    };
+    
+    $scope.cancel = function (form) {
+        if (form.$dirty) {
+            var con = confirm("You have made changes.\nAre you sure you wish to cancel?");
+            if (con) {
+                $modalInstance.dismiss('cancel');
+            }
+        } else {
+            $modalInstance.dismiss('cancel');
+        }
+    };
+};
