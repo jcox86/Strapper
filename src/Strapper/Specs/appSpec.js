@@ -5,7 +5,7 @@ describe("Midway: Testing Modules", function () {
     describe("App Module:", function () {
 
         var module;
-        before(function () {
+        beforeEach(function () {
             module = angular.module("app");
         });
 
