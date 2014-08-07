@@ -9,11 +9,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!--Library-->
+	<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="bower_components/angular-motion/dist/angular-motion.min.css" rel="stylesheet" />
-
+    <link href="bower_components/jasmine/lib/jasmine-core/jasmine.css" rel="shortcur icon"/>
+    <link href="bower_components/jasmine/images/jasmine_favicon.png"/>
+    
+    <!--Custom CSS-->
     <link href="NgApp/app.css" rel="stylesheet">
 
 </head>
@@ -25,6 +29,7 @@
         <div ng-hide="loginRequired" class="am-fade-and-scale" ng-include src="'NgApp/app.html'"></div>
     </secured-content>
     
+    <!--Library-->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/angular/angular.min.js"></script> 
     <script src="bower_components/angular-route/angular-route.min.js"></script> 
@@ -37,7 +42,11 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/angular-local-storage/angular-local-storage.min.js"></script> 
     <script src="bower_components/angular-base64/angular-base64.min.js"></script> 
-
+    <script src="bower_components/jasmine/lib/jasmine-core/jasmine.js"></script>
+    <script src="bower_components/jasmine/lib/jasmine-core/jasmine-html.js"></script>
+    <script src="bower_components/jasmine/lib/jasmine-core/boot.js"></script>
+    
+    <!--Scripts-->
     <script src="NgApp/globals.js"></script>
     <script src="NgApp/Authentication/http-auth-interceptor.js"></script>
     <script src="NgApp/Authentication/authentication.js"></script>
