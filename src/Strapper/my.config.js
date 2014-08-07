@@ -1,3 +1,10 @@
+/// <reference path="" />
+/// <reference path="bower_components/angular/angular.js" />
+/// <reference path="bower_components/angular-route/angular-route.min.js" />
+/// <reference path="bower_components/jasmine/lib/jasmine-core.js" />
+/// <reference path="bower_components/jquery/dist/jquery.min.js" />
+/// <reference path="bower_components/angular-sanitize/angular-sanitize.min.js" />
+/// <reference path="bower_components/angular-mocks/angular-mocks.js" />
 // Karma configuration
 // Generated on Wed Aug 06 2014 19:45:46 GMT-0700 (Pacific Daylight Time)
 
@@ -15,9 +22,18 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/**/*.js',
-      'Specs/*js',
-      'Specs/*.js'
+      'bower_components/jquery/dist/jquery.min.js',
+      'bower_components/angular/angular.min.js',
+      'bower_components/angular-mocks/angular-mocks.js',
+      'bower_components/angular-route/angular-route.min.js',
+      'bower_components/angular-sanitize/angular-sanitize.min.js',
+      'node_modules/karma-jasmine/lib/jasmine.js',
+      'node_modules/karma-jasmine/lib/adapter.js',
+      'node_modules/karma-jasmine/lib/index.js',
+      'NgApp/**/*.js',
+      'NgApp/*.js',
+      'Specs/**/*.js',
+      'Specs/*.js',
     ],
 
 
