@@ -1,10 +1,15 @@
 ﻿angular.module('app.navigation', ['app.authentication', 'ngRoute']);
 
 angular.module('app.navigation')
-    .controller('NavigationCtrl', ['$scope', '$location', '$modal', 'authService', NavigationCtrl]);
+    .controller('NavigationCtrl', ['$scope', '$location', '$modal', 'authService', 'toastr' , NavigationCtrl]);
 
-function NavigationCtrl($scope, $location, $modal, auth) {
+function NavigationCtrl($scope, $location, $modal, auth, toastr) {
     $scope.title = 'Strapper logo';
+
+    $scope.isActive = function(route) {
+        return route === $location.path();
+    };
+
     $scope.navItems = [
             {
                 title: " Home", icon: "fa fa-empire fa-fw", items: [
@@ -33,14 +38,14 @@ function NavigationCtrl($scope, $location, $modal, auth) {
         $scope.isCollapsed = true;
     };
 
-    $scope.isActive = function(route) {
+    $scope.isActive = function (route) {
         return ($location.path() == route);
     };
-    
+
     $scope.logout = function () {
         auth.logout();
     };
-    
+
     $scope.manageUserAccount = function () {
         $location.path('/account');
     };
@@ -52,31 +57,40 @@ function NavigationCtrl($scope, $location, $modal, auth) {
             size: 'sm',
             backdrop: 'static',
             resolve: {
-                username: function() {
+                username: function () {
                     return $scope.username;
                 }
             }
         });
         modalPasswordInstance.result.then(function (modal) {
-            confirm('Works?');
+            toastr.success('Password Changed', $scope.username);
         });
     };
 
-    $scope.simulateTimeout = function() {
+    $scope.simulateTimeout = function () {
         auth.simulateTimeout();
     };
 }
 
-var ModalChangePasswordCtrl = function($scope, $http, $location, $modalInstance, username) {
+var ModalChangePasswordCtrl = function ($scope, $http, $location, $modalInstance, username, toastr) {
     $scope.username = username;
 
-    $scope.changePassword = function(password) {
+    $scope.changePassword = function (password) {
         if (password.first === password.second) {
-            //TODO: Submit change password to server and remove this line below
-            $modalInstance.dismiss('cancel');
+            var pw = {
+                currentPassword: password.current,
+                newPassword: password.first
+            };
+            $http({ method: 'POST', url: globals.baseApiUrl + '/user/password', data: JSON.stringify(pw) })
+                .success(function (data, status, headers, config) {
+                    $modalInstance.close(data);
+                })
+                .error(function (data, status) {
+                    toastr.error("Error changing your password: " + status, 'Error');
+                });
         }
     };
-    
+
     $scope.cancel = function (form) {
         if (form.$dirty) {
             var con = confirm("You have made changes.\nAre you sure you wish to cancel?");

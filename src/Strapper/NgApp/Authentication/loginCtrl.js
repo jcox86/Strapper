@@ -4,6 +4,10 @@
 function LoginCtrl($scope, $http, auth) {
 
     $scope.authenticating = false;
+    
+    $scope.isActive = function (route) {
+        return route === $location.path();
+    };
 
     $scope.login = function (user) {
         if (!user || !user.username || !user.password) {

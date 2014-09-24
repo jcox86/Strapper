@@ -1,10 +1,14 @@
 ﻿angular.module('app.home', ['ngSanitize', 'app.authentication']);
 
 angular.module('app.home')
-    .controller('HomeCtrl', ['$scope', 'authService', HomeCtrl]);
+    .controller('HomeCtrl', ['$scope', '$http', '$timeout', 'authService', HomeCtrl]);
 
-function HomeCtrl($scope, authService) {
+function HomeCtrl($scope, $http, $timeout, authService) {
     $scope.title = 'Welcome to Strapper!';
+    
+    $scope.isActive = function (route) {
+        return route === $location.path();
+    };
     
     $scope.alerts = [
         { type: 'success', message: 'Well done! You successfully set up this project.' },
@@ -16,5 +20,16 @@ function HomeCtrl($scope, authService) {
         $scope.alerts.splice(index, 1);
     };
 
-    authService.validate();
+    $scope.wait = function () {
+        //TODO: Broken?
+        $scope.myPromise = $timeout(function () {
+            var stuff = 'stuff';
+        }, 8000);
+    };
+
+    $scope.activate = function() {
+        authService.validate();
+    };
+
+    $scope.activate();
 }

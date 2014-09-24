@@ -1,7 +1,47 @@
 ﻿<div class="container">
 
     <h1>{{title}}</h1>
-	
+
     <p>Strapper is <em>The</em> AngularJS/Bootstrap/FontAwesome bootstrapper, brought to you by the folks at <a href="http://www.lotpath.com" target="_blank">Lotpath</a>.  Check out the <a href="https://github.com/Lotpath/Strappy/blob/master/README.md" target="_blank">Readme</a> for more info.</p>
+
+    <button type="button" class="btn btn-info" ng-click="getPosition()">Click here to get your geolocation info!</button>
+    <button type="button" class="btn btn-warning" ng-click="hidePosition()">Click here hide that info!</button>
+    <div class="row am-fade" ng-if="position" style="margin-top: 10px;">
+        <div class="col-xs-4">
+            <div class="form-group">
+                <label>Moment in Time</label>
+                <span class="form-control">{{position.timestamp | moment: 'dddd, MMM DD YYYY; hh:mm:ss A, ZZ'}}</span>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="form-group">
+                <label>Longitude</label>
+                <span class="form-control">{{position.coords.longitude}}</span>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="form-group">
+                <label>Latitude</label>
+                <span class="form-control">{{position.coords.latitude}}</span>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="form-group">
+                <label>Altitude</label>
+                <span class="form-control">{{position.coords.altitude}}</span>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="form-group">
+                <label>Speed</label>
+                <span class="form-control">{{position.coords.speed}}</span>
+            </div>
+        </div>
+    </div>
     
+    <h4 class="am-fade" ng-if="hasUserMedia">Look! Your on camera!</h4>
+    <camera>
+        <camera-control-snapshot></camera-control-snapshot>   
+    </camera>
+
 </div>
