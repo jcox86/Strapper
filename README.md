@@ -9,6 +9,7 @@ Packages List
 <ul>
     <li>jQuery</li>
     <li>Angular</li>
+    <li>Angular.Animation</li>
     <li>Bootstrap</li>
     <li>UI Bootstrap</li>
     <li>AngularStrap</li>
@@ -21,4 +22,5 @@ Packages List
 
 Most of the authentication module and app structure was created by <a href="https://github.com/jessetechie" target="_blank">Jesse Hemstad</a> of Lotpath, who created Strappy
 
-*NOTE: Added moment and toastr. Need to figure out Jasmine
+*NOTE: Added unit testing via karma and jasmine. Need to write useable unit tests.
+*NOTE: Looking to convert this, or possibly a clone of this to angular-material-design. It is awesome.
