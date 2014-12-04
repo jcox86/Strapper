@@ -1,0 +1,28 @@
+﻿<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2 md-locked-open md-closed" style="overflow: hidden; display: flexbox;" md-component-id="left" md-is-locked-open="$media('md')" tabindex="-1">
+    <md-toolbar style="min-height: 64px; max-height: 64px;" layout="column" class="md-green-theme">
+        <h1 class="md-toolbar-tools" flex layout="column">
+            <a href ng-click="goHome()" layout="row" flex tabindex="0">
+                <img src="http://lotpath.com/Content/images/logo/logo.png" alt="Lotpath"/>
+            </a>
+        </h1>
+    </md-toolbar>
+    <md-content flex style="overflow: auto;" class="md-green-theme" ng-controller="NavigationCtrl">
+        <div ng-repeat="item in navItems">
+            <md-button class="md-raised menu-item menu-title" ng-click="setRoute(item.route)">{{item.title}}
+                <div class="md-ripple-container"></div>
+            </md-button>
+            <a class="menu-item" ng-repeat="page in item.items" md-ink-ripple="#bbb" ng-click="setRoute(page.route)">{{page.title}}</a>
+        </div>
+    </md-content>
+</md-sidenav>
+
+<div layout="column" layout-fill tabindex="-1" role="main">
+    <md-toolbar layout="column" class="md-green-theme" md-ink-ripple="#bbb">
+        <div class="md-toolbar-tools" flex layout="column" tabindex="0">
+            <div layout="row" flex>
+                <a class="md-button md-green-theme">{{title}}</a>
+            </div>
+        </div>
+    </md-toolbar>
+    <md-content ng-view md-scroll-y flex class="md-padding md-green-theme"></md-content>
+</div>

@@ -1,0 +1,26 @@
+﻿<div class="container">
+
+    <h1>{{title}}</h1>
+
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+        <span ng-bind-html="alert.message"></span>
+    </alert>
+
+    <accordion close-others="oneAtATime">
+        <accordion-group is-open="status.open">
+            <accordion-heading>
+                Loading Fun <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+            </accordion-heading>
+        <div cg-busy="{promise:myPromise,message:'Whoa, loading and waiting for stuff is cool now.',templateUrl:''}"></div>
+            <div class="col-xs-4"></div>
+            <div class="col-xs-4 text-center">
+                <div class="form-group-lg">
+                    <label>Why don't you wait around for a few seconds?</label>
+                    <button type="button" class="btn btn-success form-control" ng-click="wait()">Sure, I'll wait!</button>
+                </div>
+            </div>
+            <div class="col-xs-4"></div>
+        </accordion-group>
+    </accordion>
+
+</div>

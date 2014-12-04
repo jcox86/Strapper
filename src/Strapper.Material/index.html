@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+
+    <title>{{title}}</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="application-name" content="
+      ___                       ___           ___           ___         ___         ___           ___     
+     /  /\          ___        /  /\         /  /\         /  /\       /  /\       /  /\         /  /\    
+    /  /:/_        /  /\      /  /::\       /  /::\       /  /::\     /  /::\     /  /:/_       /  /::\   
+   /  /:/ /\      /  /:/     /  /:/\:\     /  /:/\:\     /  /:/\:\   /  /:/\:\   /  /:/ /\     /  /:/\:\  
+  /  /:/ /::\    /  /:/     /  /:/~/:/    /  /:/~/::\   /  /:/~/:/  /  /:/~/:/  /  /:/ /:/_   /  /:/~/:/  
+ /__/:/ /:/\:\  /  /::\    /__/:/ /:/___ /__/:/ /:/\:\ /__/:/ /:/  /__/:/ /:/  /__/:/ /:/ /\ /__/:/ /:/___
+ \  \:\/:/~/:/ /__/:/\:\   \  \:\/:::::/ \  \:\/:/__\/ \  \:\/:/   \  \:\/:/   \  \:\/:/ /:/ \  \:\/:::::/
+  \  \::/ /:/  \__\/  \:\   \  \::/~~~~   \  \::/       \  \::/     \  \::/     \  \::/ /:/   \  \::/~~~~ 
+   \__\/ /:/        \  \:\   \  \:\        \  \:\        \  \:\      \  \:\      \  \:\/:/     \  \:\     
+     /__/:/          \__\/    \  \:\        \  \:\        \  \:\      \  \:\      \  \::/       \  \:\    
+     \__\/                     \__\/         \__\/         \__\/       \__\/       \__\/         \__\/    
+        
+        "/>
+    
+    <!--Library CSS-->
+    <link href="bower_components/angular-motion/dist/angular-motion.min.css" rel="stylesheet" />
+    <link href="bower_components/angular-material/angular-material.css" rel="stylesheet" />
+    <link href="bower_components/angular-material/themes/green-theme.css" rel="stylesheet" />
+    
+    <!--Testing CSS-->
+    
+    <!--Custom CSS-->
+    <link href="NgApp/app.css" rel="stylesheet">
+
+</head>
+
+<body>
+    
+<!--    <secured-content>
+        <div ng-show="loginRequired" class="am-fade-and-scale" ng-include src="'NgApp/Authentication/login.html'" ng-controller="LoginCtrl"></div>
+    </secured-content>-->
+    
+    <div class="am-fade-and-scale" ng-include src="'NgApp/app.html'" layout="row" md-theme="green"></div>
+
+    <!--Library Scripts-->
+    <script src="bower_components/angular/angular.min.js"></script> 
+    <script src="bower_components/angular-route/angular-route.min.js"></script> 
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/hammerjs/hammer.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script> 
+    <script src="bower_components/angular-base64/angular-base64.min.js"></script> 
+    
+    <!--Testing Scripts-->
+    
+    <!--Custom Scripts/View Models-->
+    <script src="NgApp/globals.js"></script>
+    <script src="NgApp/Authentication/http-auth-interceptor.js"></script>
+    <script src="NgApp/Authentication/authentication.js"></script>
+    <script src="NgApp/Authentication/loginCtrl.js"></script>
+    <script src="NgApp/Authentication/fakeAuthenticationSvc.js"></script>
+    <script src="NgApp/Authentication/securedContent.js"></script>
+    <script src="NgApp/Navigation/navigation.js"></script>
+    <script src="NgApp/Navigation/routes.js"></script>
+    <script src="NgApp/Home/home.js"></script>
+    <script src="NgApp/About/about.js"></script>
+    <script src="NgApp/Account/account.js"></script>
+    <script src="NgApp/app.js"></script>
+
+</body>
+</html>
