@@ -20,7 +20,5 @@ Packages List
     <li>Angular Base64</li>
 </ul>
 
-Most of the authentication module and app structure was created by <a href="https://github.com/jessetechie" target="_blank">Jesse Hemstad</a> of Lotpath, who created Strappy
-
 *NOTE: Added unit testing via karma and jasmine. Need to write useable unit tests.
 *NOTE: Looking to convert this, or possibly a clone of this to angular-material-design. It is awesome.
